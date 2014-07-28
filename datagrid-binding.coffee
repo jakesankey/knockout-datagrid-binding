@@ -70,7 +70,7 @@ class ko.datagrid.DataGridViewModel
 
         @columns = ko.unwrap(config.columns)
         {@sortable, @searchable, @lengthMenu, @paging, @selectable, @selectStyle} = config.options
-        @selectStyle ?= if @selectStyle is "radio" then "radio" else "checkbox"
+        @selectStyle = "checkbox" if @selectStyle isnt "radio"
 
         @currentPageIndex = ko.observable(0)
         @searchInput = ko.observable("")

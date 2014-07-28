@@ -57,8 +57,8 @@
       this.pageLength = ko.observable((_ref = (_ref1 = config.options) != null ? _ref1.pageLength : void 0) != null ? _ref : 10);
       this.columns = ko.unwrap(config.columns);
       _ref2 = config.options, this.sortable = _ref2.sortable, this.searchable = _ref2.searchable, this.lengthMenu = _ref2.lengthMenu, this.paging = _ref2.paging, this.selectable = _ref2.selectable, this.selectStyle = _ref2.selectStyle;
-      if (this.selectStyle == null) {
-        this.selectStyle = this.selectStyle === "radio" ? "radio" : "checkbox";
+      if (this.selectStyle !== "radio") {
+        this.selectStyle = "checkbox";
       }
       this.currentPageIndex = ko.observable(0);
       this.searchInput = ko.observable("");
