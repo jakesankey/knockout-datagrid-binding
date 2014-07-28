@@ -62,6 +62,11 @@
       }
       this.currentPageIndex = ko.observable(0);
       this.searchInput = ko.observable("");
+      this.searchInput.subscribe((function(_this) {
+        return function() {
+          return _this.currentPageIndex(_this.currentPageIndex() > _this.maxPageIndex() ? _this.maxPageIndex() : 0);
+        };
+      })(this));
       this.searchableData = ko.computed((function(_this) {
         return function() {
           var item, key, results, searchString, _i, _len, _ref3;

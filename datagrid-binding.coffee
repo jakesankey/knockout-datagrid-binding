@@ -74,6 +74,10 @@ class ko.datagrid.DataGridViewModel
 
         @currentPageIndex = ko.observable(0)
         @searchInput = ko.observable("")
+        @searchInput.subscribe(=>
+            @currentPageIndex(if @currentPageIndex() > @maxPageIndex() then @maxPageIndex() else 0)
+        )
+
         @searchableData = ko.computed(=>
             if not @searchInput()? or @searchInput().length is 0
                 return @data()
